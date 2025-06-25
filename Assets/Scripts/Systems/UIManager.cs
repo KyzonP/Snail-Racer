@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        speedText.text = ((player.GetComponent<SnailController>().speed + player.GetComponent<SnailController>().currentSpeedModifier)/1.5).ToString("F2");
+        speedText.text = ((player.GetComponent<SnailController>().speed * player.GetComponent<SnailController>().currentSpeedModifier)).ToString("F2");
 
     }
 }

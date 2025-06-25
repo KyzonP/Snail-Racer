@@ -4,18 +4,30 @@ public class SnailController : MonoBehaviour
 {
     public GameObject player;
     public float speed = 10.0f;
+    float originalSpeed = 10.0f;
     public float currentSpeedModifier = 1f;
+
+    public PowerUpBase heldPowerUp;
+
+    public bool bump = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        originalSpeed = speed;
     }
 
     // Update is called once per frame
     void Update()
     {
         Move();
+
+        // Powerup use
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            UsePowerUp();
+        }
     }
 
     void Move()
@@ -50,5 +62,27 @@ public class SnailController : MonoBehaviour
             currentSpeedModifier = 1f; // Reset to normal
             Debug.Log("Exited terrain.");
         }
+    }
+
+    public void UsePowerUp()
+    {
+        if (heldPowerUp != null)
+        {
+            bool usedSuccessfully = heldPowerUp.Activate(this);
+
+            if (usedSuccessfully)
+            {
+                heldPowerUp = null;
+            }
+            else
+            {
+                Debug.Log("Power-up use failed, not consuming it.");
+            }
+        }
+    }
+
+    public void ResetSpeed()
+    {
+        speed = originalSpeed;
     }
 }

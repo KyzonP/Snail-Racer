@@ -33,6 +33,6 @@ public class RaceManager : MonoBehaviour
     public void FinishRace()
     {
         raceActive = false;
-        Debug.Log("Race finished! Your time: {raceTime:F2}");
+        Debug.Log($"Race finished! Your time: {raceTime:F2}s");
     }
 }

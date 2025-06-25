@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab3ac294b9f80045b5823566c849407, type: 3}
+  m_Name: NewGoopGrenade
+  m_EditorClassIdentifier: 
+  powerUpName: 
+  icon: {fileID: 1707246956917954956, guid: 1afe7ed93e1f988418633b8b77c13ebd, type: 3}
+  duration: 3
+  goopPrefab: {fileID: 363291911846067031, guid: b6cc87f86f467f843ac7b7cda6e2805f, type: 3}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
