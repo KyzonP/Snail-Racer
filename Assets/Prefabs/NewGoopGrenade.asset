@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab3ac294b9f80045b5823566c849407, type: 3}
   m_Name: NewGoopGrenade
   m_EditorClassIdentifier: 
-  powerUpName: 
+  powerUpName: Goop Grenade
   icon: {fileID: 1707246956917954956, guid: 1afe7ed93e1f988418633b8b77c13ebd, type: 3}
   duration: 3
+  goopSpawnOrigin: {fileID: 0}
   goopPrefab: {fileID: 363291911846067031, guid: b6cc87f86f467f843ac7b7cda6e2805f, type: 3}
   groundLayer:
     serializedVersion: 2

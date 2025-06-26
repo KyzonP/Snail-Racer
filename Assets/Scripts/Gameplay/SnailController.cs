@@ -7,9 +7,12 @@ public class SnailController : MonoBehaviour
     float originalSpeed = 10.0f;
     public float currentSpeedModifier = 1f;
 
+    // Power up storage, plus if the shell bump is 'active'
     public PowerUpBase heldPowerUp;
-
     public bool bump = false;
+
+    // UI References
+    public PowerUpUI powerUpUI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -64,6 +67,13 @@ public class SnailController : MonoBehaviour
         }
     }
 
+    public void PickUpPowerUp(PowerUpBase newPowerUp)
+    {
+        heldPowerUp = newPowerUp;
+        powerUpUI.UpdatePowerUpDisplay(heldPowerUp);
+        ResetSpeed();
+    }
+
     public void UsePowerUp()
     {
         if (heldPowerUp != null)
@@ -73,6 +83,7 @@ public class SnailController : MonoBehaviour
             if (usedSuccessfully)
             {
                 heldPowerUp = null;
+                powerUpUI.UpdatePowerUpDisplay(null);
             }
             else
             {
