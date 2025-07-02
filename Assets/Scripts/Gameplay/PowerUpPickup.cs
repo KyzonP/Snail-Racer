@@ -9,7 +9,8 @@ public class PowerUpPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        SnailController snail = other.GetComponent<SnailController>();
+        BaseSnail snail = other.GetComponent<BaseSnail>();
+
         if (snail && snail.heldPowerUp == null)
         {
             snail.PickUpPowerUp(powerUp);

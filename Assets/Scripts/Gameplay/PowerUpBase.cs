@@ -6,5 +6,5 @@ public abstract class PowerUpBase : ScriptableObject
     public Sprite icon;
     public float duration = 3f;
 
-    public abstract bool Activate(SnailController user);
+    public abstract bool Activate(BaseSnail user);
 }

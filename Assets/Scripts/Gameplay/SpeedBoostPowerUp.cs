@@ -6,14 +6,14 @@ public class SpeedBoostPowerUp : PowerUpBase
 {
     public float speedMultiplier = 2f;
 
-    public override bool Activate(SnailController user)
+    public override bool Activate(BaseSnail user)
     {
         user.StartCoroutine(ApplySpeed(user));
 
         return true;
     }
 
-    private IEnumerator ApplySpeed(SnailController snail)
+    private IEnumerator ApplySpeed(BaseSnail snail)
     {
         float originalSpeed = snail.speed;
         snail.speed *= speedMultiplier;
