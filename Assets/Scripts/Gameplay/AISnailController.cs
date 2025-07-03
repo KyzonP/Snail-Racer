@@ -64,6 +64,18 @@ public class AISnailController : BaseSnail
             return;
         }
 
+        int index = Random.Range(0, currentWaypoint.nextNodes.Count);
+        targetWaypoint = currentWaypoint.nextNodes[index];
+    }
+
+    // Choosing the optimal path - re-do this later on to add complexity
+    void OldChooseNextWaypoint()
+    {
+        if (currentWaypoint.nextNodes == null || currentWaypoint.nextNodes.Count == 0)
+        {
+            return;
+        }
+
         WaypointNode bestChoice = null;
 
         float bestDistance = Mathf.Infinity;

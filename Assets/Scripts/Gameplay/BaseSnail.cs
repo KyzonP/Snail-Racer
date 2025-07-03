@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class BaseSnail : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class BaseSnail : MonoBehaviour
 
     public PowerUpBase heldPowerUp;
 
+    public bool isStunned = false;
+    private float stunTimeRemaining = 0f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,9 +20,9 @@ public class BaseSnail : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
-        
+
     }
 
     public virtual void PickUpPowerUp(PowerUpBase newPowerUp)
@@ -51,5 +55,25 @@ public class BaseSnail : MonoBehaviour
             currentSpeedModifier = 1f; // Reset to normal
             Debug.Log("Exited terrain.");
         }
+    }
+
+    public void Stun(float duration)
+    {
+        if (!isStunned)
+            {
+                StartCoroutine(StunCoroutine(duration));
+            }
+    }
+
+    private IEnumerator StunCoroutine(float duration)
+    {
+        isStunned = true;
+        speed = 0f;
+
+        // Animation/VFX etc
+
+        yield return new WaitForSeconds(duration);
+        speed = originalSpeed;
+        isStunned = false;
     }
 }

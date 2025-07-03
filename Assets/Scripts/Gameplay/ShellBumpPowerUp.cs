@@ -19,12 +19,20 @@ public class ShellBumpPowerUp : PowerUpBase
         snail.speed *= speedMultiplier;
 
         // Enable bump
-        snail.bump = true;
+        Transform bumpZone = snail.transform.Find("ShellBumpZone");
+        if (bumpZone != null)
+        {
+            bumpZone.gameObject.SetActive(true);
+            bumpZone.GetComponent<ShellBumpTrigger>().Init(snail);
+        }
 
         //VFX here
 
         yield return new WaitForSeconds(duration);
         snail.speed = originalSpeed;
-        snail.bump = false;
+        if (bumpZone != null)
+        {
+            bumpZone.gameObject.SetActive(false);
+        }
     }
 }
